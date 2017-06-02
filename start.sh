@@ -10,11 +10,11 @@
 # set a sensible default
 
 if [ -z "${PGUSER}" ]; then
-  PGUSER=docker
+  PGUSER=postgres
 fi
 
 if [ -z "${PGPASSWORD}" ]; then
-  PGPASSWORD=docker
+  PGPASSWORD=postgres
 fi
 
 if [ -z "${PGPORT}" ]; then
@@ -26,11 +26,11 @@ if [ -z "${PGHOST}" ]; then
 fi
 
 if [ -z "${PGDATABASE}" ]; then
-  PGDATABASE=gis
+  PGDATABASE=postgres
 fi
 
 if [ -z "${DUMPPREFIX}" ]; then
-  DUMPPREFIX=PG
+  DUMPPREFIX=pg_dump
 fi
 
 # Now write these all to case file that can be sourced

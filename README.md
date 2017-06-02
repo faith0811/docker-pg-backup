@@ -1,9 +1,11 @@
+# Outdated
+
 # Docker PG Backup
 
 
 A simple docker container that runs PostGIS backups. It is intended to be used
 primarily with our [docker postgis](https://github.com/kartoza/docker-postgis)
-docker image. By default it will create a backup once per night (at 23h00)in a 
+docker image. By default it will create a backup once per night (at 23h00)in a
 nicely ordered directory by year / month.
 
 * Visit our page on the docker hub at: https://registry.hub.docker.com/u/kartoza/pg-backup/
@@ -25,8 +27,8 @@ docker pull kartoza/pg-backup:9.4
 docker pull kartoza/pg-backup:9.3
 ```
 
-We highly suggest that you use a tagged image (9.4 or 9.3 currently available) as 
-latest may change and may not successfully back up your database. Use the same or 
+We highly suggest that you use a tagged image (9.4 or 9.3 currently available) as
+latest may change and may not successfully back up your database. Use the same or
 greater version of postgis as the database you are backing up.
 
 
@@ -55,14 +57,14 @@ docker run --name="backups"\
            -v backups:/backups \
            -i -d kartoza/pg-backup:9.4
 ```
-           
+
 In this example I used a volume into which the actual backups will be
 stored.
 
 # Specifying environment
 
 
-You can also use the following environment variables to pass a 
+You can also use the following environment variables to pass a
 user name and password etc for the database connection.
 
 
@@ -78,7 +80,7 @@ Example usage:
 docker run -e PGUSER=bob -e PGPASSWORD=secret -link db -i -d kartoza/pg-backup
 ```
 
-One other environment variable you may like to set is a prefix for the 
+One other environment variable you may like to set is a prefix for the
 database dumps.
 
 * DUMPPREFIX if not set, defaults to : PG
@@ -118,7 +120,7 @@ dbbackups:
     - PGPASSWORD=docker
     - PGPORT=5432
     - PGHOST=db
-    - PGDATABASE=gis  
+    - PGDATABASE=gis
 ```
 
 Then run using:
