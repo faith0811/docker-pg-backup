@@ -45,11 +45,17 @@ export PGPORT=$PGPORT
 export PGHOST=$PGHOST
 export PGDATABASE=$PGDATABASE
 export DUMPPREFIX=$DUMPPREFIX
+export QINGCLOUD_BUCKET=$QINGCLOUD_BUCKET
  " > /pgenv.sh
+
+echo "
+access_key_id: '$QINGCLOUD_ACCESS_ID'
+secret_access_key: '$QINGCLOUD_ACCESS_KEY'
+" > ~/.qingstor/config.yaml
 
 echo "Start script running with these environment options"
 set | grep PG
 
 # Now launch cron in then foreground.
 
-cron && tail -f /var/log/cron.log
+cron -f

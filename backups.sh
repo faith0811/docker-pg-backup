@@ -26,4 +26,5 @@ do
   echo "Backing up $DB"  >> /var/log/cron.log
   FILENAME=${MYBACKUPDIR}/${DUMPPREFIX}_${DB}.${MYDATE}.dmp
   pg_dump -Fc -f ${FILENAME} -x -O ${DB}
+  qsctl cp ${FILENAME} qs://${QINGCLOUD_BUCKET}/${FILENAME}
 done
