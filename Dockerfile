@@ -12,4 +12,8 @@ ADD backups.sh /backups.sh
 ADD start.sh /start.sh
 RUN mkdir /root/.qingstor
 
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo "Asia/Shanghai" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
 CMD ["/start.sh"]
