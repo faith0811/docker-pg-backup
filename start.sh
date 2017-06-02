@@ -52,4 +52,4 @@ set | grep PG
 
 # Now launch cron in then foreground.
 
-cron -f
+cron && tail -f /var/log/cron.log
