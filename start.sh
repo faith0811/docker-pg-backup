@@ -58,4 +58,6 @@ set | grep PG
 
 # Now launch cron in then foreground.
 
-cron -f
+cron
+crontab /etc/cron.d/backups-cron
+tail -F /var/log/cron.log

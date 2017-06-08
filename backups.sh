@@ -1,6 +1,10 @@
 #!/bin/bash
 
+echo "Start" >> /var/log/cron.log
+
 source /pgenv.sh
+
+echo "Finish import env" >> /var/log/cron.log
 
 #echo "Running with these environment options" >> /var/log/cron.log
 #set | grep PG >> /var/log/cron.log
@@ -25,6 +29,6 @@ for DB in ${DBLIST}
 do
   echo "Backing up $DB"  >> /var/log/cron.log
   FILENAME=${MYBACKUPDIR}/${DUMPPREFIX}_${DB}.${MYDATE}.dmp
-  pg_dump -Fc -f ${FILENAME} -x -O ${DB}
-  qsctl cp ${FILENAME} qs://${QINGCLOUD_BUCKET}/${FILENAME}
+  /usr/lib/postgresql/9.6/bin/pg_dump -Fc -f ${FILENAME} -x -O ${DB}
+  /usr/local/bin/qsctl cp ${FILENAME} qs://${QINGCLOUD_BUCKET}/${FILENAME}
 done

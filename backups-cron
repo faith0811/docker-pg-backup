@@ -1,2 +1,7 @@
-* * * * * root /backups.sh
-# For new line
+# For testing - run every minute
+# */1 * * * * /bin/bash /backups.sh 2>&1
+
+# Run the backups at 2am
+0 2 * * * /bin/bash /backups.sh 2>&1
+
+# We need a blank line here for it to be a valid cron file
